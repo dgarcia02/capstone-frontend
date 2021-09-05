@@ -9,8 +9,8 @@ const App = () => {
 
   return (
     <div className="container">
+      <h1>Las Vegas Guide</h1>
       {/* <Navbar /> */}
-        <h1>Testing</h1>
         <Profile />
         {/* <div className='headerContainer'>
                 <img src="https://i.imgur.com/6LtVTDQ.jpg"/>
