@@ -1,11 +1,13 @@
 import React from 'react'
-// CSS and Bootstrap
 import '../App.css';
+import { useSelector } from 'react-redux'
 
 // Components
 // import LoginForm from './LogIn';
 
-export const Navbar = () => {
+const Navbar = () => {
+    const isLogged = useSelector(state => state.isLogged)
+
     return (
         <div className="nav-container">
             <nav className="navbar">
@@ -44,7 +46,8 @@ export const Navbar = () => {
                                 {/* <LoginForm /> */}
                             </modal>
                         </li>
-                    }
+                    } 
+                   
                 </ul>
             </nav>
         </div>

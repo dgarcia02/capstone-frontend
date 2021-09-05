@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import isLoggedReducer from '../features/isLogged/isLoggedSlice';
+import profileReducer from '../features/profiles/profileSlice';
 
 // can pass in all reducers in this object
 export const store = configureStore({
@@ -8,6 +9,6 @@ export const store = configureStore({
     reducer: {
         counter: counterReducer,
         isLogged: isLoggedReducer,
+        profile: profileReducer,
     }
 })
-

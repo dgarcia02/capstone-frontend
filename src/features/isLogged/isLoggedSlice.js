@@ -1,7 +1,7 @@
 import React from 'react'
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = false
+let initialState = false
 
 export const isLoggedSlice = createSlice({
     name: 'isLogged',
