@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Spinner from 'react-bootstrap/Spinner';
 
 // API
 import { useFetchShowsQuery } from '../api/services/shows-api-slice';
@@ -28,12 +29,15 @@ const HomeBody = () => {
                         {error ? (
                             <>Oh no, there was an error</>
                         ) : isLoading ? (
-                            <>Loading...</>
+                            <Spinner animation="border" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
+                            // <>Loading...</>
                         ) : data ? (
                             <div className='allShows'>
                                 {data._embedded.events.map((event) => (
                                     <div className='individualShow'>
-                                        <img src={event.images[0].url} alt={event.name} height={250} onClick={handleShow} />
+                                        <img src={event.images[0].url} alt={event.name} height={250} onClick={handleShow} className='mainImg' />
                                         <Modal show={show} onHide={handleClose}>
                                             <Modal.Header closeButton>
                                                 <Modal.Title>{event.name}</Modal.Title>

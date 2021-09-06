@@ -57,6 +57,10 @@ ul {
   justify-content: space-between;
 }
 
+.mainImg {
+  cursor: pointer;
+}
+
 .individualShow {
   width: 32%;
   /* background-color: whitesmoke; */

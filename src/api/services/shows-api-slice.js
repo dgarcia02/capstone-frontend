@@ -23,7 +23,7 @@ export const showsApiSlice = createApi({
     endpoints: (builder) => ({
         fetchShows: builder.query({
             query(limit = 10) {
-                return `events.json?dmaId=319&keyword=${userInput}&apikey=${VEGAS_API_KEY}&size=10`;
+                return `events.json?dmaId=319&keyword=${userInput}&apikey=${VEGAS_API_KEY}&size=12`;
             }
         })
     })
