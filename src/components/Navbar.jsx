@@ -46,7 +46,9 @@ const Navbar = () => {
                         </Form>
                     </li>
                     <li>
-                        <a href="#home" className="nav-links">Home</a>
+                        <a href="#home" className="nav-links">
+                            <i class="fas fa-home"></i> 
+                        </a>
                     </li>
                     {
                         currentUser ?

@@ -3,7 +3,7 @@ import counterReducer from '../features/counter/counterSlice';
 import currentUserSlice from '../features/currentUser/currentUserSlice';
 import profileReducer from '../features/profiles/profileSlice';
 import newUserReducer from '../features/userAuth/newUserSlice';
-import { showsApiSlice } from '../api/shows/shows-api-slice';
+import { showsApiSlice } from '../api/services/shows-api-slice';
 
 // can pass in all reducers in this object
 export const store = configureStore({
