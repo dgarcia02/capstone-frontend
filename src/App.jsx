@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Profile from './features/profiles/Profile'
 import NewProfileForm from './features/profiles/NewProfileForm'
+import EditProfileForm from './features/profiles/EditProfileForm'
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
       {/* <Navbar /> */}
         <NewProfileForm />
         <Profile />
+        <EditProfileForm />
         {/* <div className='headerContainer'>
                 <img src="https://i.imgur.com/6LtVTDQ.jpg"/>
         </div> */}

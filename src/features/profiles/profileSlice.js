@@ -11,10 +11,25 @@ export const profileSlice = createSlice({
     reducers: {
         newProfile(state, action) {
             state.push(action.payload)
+        },
+        editProfile(state, action) {
+            const { id, first_name, last_name, email, image, gender, dob, phone, city, states } = action.payload
+            const existingProfile = state.find(profile => profile.id === id)
+            if (existingProfile) {
+                existingProfile.first_name = first_name
+                existingProfile.last_name = last_name
+                existingProfile.email = email
+                existingProfile.image = image
+                existingProfile.gender = gender
+                existingProfile.dob = dob
+                existingProfile.phone = phone
+                existingProfile.city = city
+                existingProfile.state = states
+            }
         }
     }
 })
 
-export const { newProfile } = profileSlice.actions
+export const { newProfile, editProfile } = profileSlice.actions
 
 export default profileSlice.reducer;

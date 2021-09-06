@@ -1,22 +1,29 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-// gives the item a generated id
-import { nanoid } from '@reduxjs/toolkit'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from './profileSlice'
 
-import { newProfile } from './profileSlice'
+import { editProfile } from './profileSlice'
 
-const NewProfileForm = () => {
-    const [first_name, setFirst_Name] = useState('')
-    const [last_name, setLast_Name] = useState('')
-    const [email, setEmail] = useState('')
-    const [image, setImage] = useState('')
-    const [gender, setGender] = useState('')
-    const [dob, setDob] = useState('')
-    const [phone, setPhone] = useState('')
-    const [city, setCity] = useState('')
-    const [states, setStates] = useState('')
+const EditProfileForm = ({ match }) => {
+    const { postId } = match.params
+
+    // this finds the profile by id to edit
+    const profile = useSelector(state => state.profile.find(profile => profile.id === profile.Id)
+    )
+
+    // setting the use state as profile.'#' to call the current state
+    const [first_name, setFirst_Name] = useState(profile.first_name)
+    const [last_name, setLast_Name] = useState(profile.last_name)
+    const [email, setEmail] = useState(profile.email)
+    const [image, setImage] = useState(profile.image)
+    const [gender, setGender] = useState(profile.gender)
+    const [dob, setDob] = useState(profile.dob)
+    const [phone, setPhone] = useState(profile.phone)
+    const [city, setCity] = useState(profile.city)
+    const [states, setStates] = useState(profile.states)
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const onFirstNameChange = e => setFirst_Name(e.target.value)
     const onLastNameChange = e => setLast_Name(e.target.value)
@@ -26,13 +33,13 @@ const NewProfileForm = () => {
     const onDobChange = e => setDob(e.target.value)
     const onPhoneChange = e => setPhone(e.target.value)
     const onCityChange = e => setCity(e.target.value)
-    const onStatesChange = e => setStates(e.target.value)
+    const onStatesChange = e => setState(e.target.value)
 
     const onSaveProfile = () => {
         if (first_name && last_name && email && image && gender && dob && phone && city && states) {
             dispatch(
-                newProfile({
-                    id: nanoid(),
+                editProfile({
+                    id: postId,
                     first_name,
                     last_name,
                     email,
@@ -44,27 +51,20 @@ const NewProfileForm = () => {
                     states
                 })
             )
-            setFirst_Name('')
-            setLast_Name('')
-            setEmail('')
-            setImage('')
-            setGender('')
-            setDob('')
-            setPhone('')
-            setCity('')
-            setStates('')
+                history.push(`/posts/${postId}`)
         }
     }
 
     return (
         <div className='newProfile-container'>
-            <h3>Create new profile.</h3>
+            <h3>Edit profile.</h3>
             <form>
                 <label htmlFor="profileFirstName">First Name</label>
                 <input
                     type="text"
                     id='profileFirstName'
                     name='profileFirstName'
+                    placeholder={profile.first_name}
                     value={first_name}
                     onChange={onFirstNameChange}
                 />
@@ -74,6 +74,7 @@ const NewProfileForm = () => {
                     type='text'
                     id='profileLastName'
                     name='profileLastName'
+                    placeholder={profile.last_name}
                     value={last_name}
                     onChange={onLastNameChange}
                 />
@@ -83,6 +84,7 @@ const NewProfileForm = () => {
                     type='email'
                     id='profileEmail'
                     name='profileEmail'
+                    placeholder={profile.email}
                     value={email}
                     onChange={onEmailChange}
                 />
@@ -92,6 +94,7 @@ const NewProfileForm = () => {
                     type='text'
                     id='profileImage'
                     name='profileImage'
+                    placeholder={profile.image}
                     value={image}
                     onChange={onImageChange}
                 />
@@ -101,6 +104,7 @@ const NewProfileForm = () => {
                     type='text'
                     id='profileGender'
                     name='profileGender'
+                    placeholder={profile.gender}
                     value={gender}
                     onChange={onGenderChange}
                 />
@@ -110,6 +114,7 @@ const NewProfileForm = () => {
                     type='text'
                     id='profileDob'
                     name='profileDob'
+                    placeholder={profile.dob}
                     value={dob}
                     onChange={onDobChange}
                 />
@@ -119,6 +124,7 @@ const NewProfileForm = () => {
                     type='text'
                     id='profilePhone'
                     name='profilePhone'
+                    placeholder={profile.phone}
                     value={phone}
                     onChange={onPhoneChange}
                 />
@@ -128,6 +134,7 @@ const NewProfileForm = () => {
                     type='text'
                     id='profileCity'
                     name='profileCity'
+                    placeholder={profile.city}
                     value={city}
                     onChange={onCityChange}
                 />
@@ -137,6 +144,7 @@ const NewProfileForm = () => {
                     type='text'
                     id='profileStates'
                     name='profileStates'
+                    placeholder={profile.states}
                     value={states}
                     onChange={onStatesChange}
                 />
