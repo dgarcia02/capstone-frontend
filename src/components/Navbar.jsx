@@ -10,7 +10,8 @@ const Navbar = () => {
 
     return (
         <div className="nav-container">
-            <nav className="navbar">
+            <h3>this is the navbar test</h3>
+            {/* <nav className="navbar">
                 <h2 id="nav-logo">Logo</h2>
                 <div className="menu-toggle" id="mobile-menu">
                     <span className="bar"></span>
@@ -43,13 +44,13 @@ const Navbar = () => {
                                     overlay: 'customOverlay',
                                     modal: 'customModal',
                                 }} >
-                                {/* <LoginForm /> */}
+                                {/* <LoginForm /> 
                             </modal>
                         </li>
                     } 
                    
                 </ul>
-            </nav>
+            </nav> */}
         </div>
     )
 }

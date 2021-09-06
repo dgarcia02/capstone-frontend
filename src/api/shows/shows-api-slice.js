@@ -2,23 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const VEGAS_API_KEY = '2xVQNFpSH4QhJRlTAQkkCqiR1ATG52I9';
 
-// const shows = {
-//     name: String, 
-//     type: String,
-//     id: String,
-//     test: Boolean,
-//     url: String,
-//     locale: String,
-//     images: Array,
-//     sales: Object,
-//     dates: Object,
-//     classification: Array,
-//     promoter: Object,
-//     promoters: Array,
-//     priceRanges: Array,
-//     _links: Object,
-//     _embedded: Object
-// }
+const userInput = 'shinlim'
+// e.target.value
+
 
 // RTK Query
 export const showsApiSlice = createApi({
@@ -37,7 +23,7 @@ export const showsApiSlice = createApi({
     endpoints: (builder) => ({
         fetchShows: builder.query({
             query(limit = 10) {
-                return `events.json?dmaId=319&apikey=${VEGAS_API_KEY}`;
+                return `events.json?dmaId=319&keyword=${userInput}&apikey=${VEGAS_API_KEY}&size=10`;
             }
         })
     })

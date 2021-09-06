@@ -3,7 +3,7 @@ import './App.css'
 
 // Components
 import { useFetchShowsQuery } from './api/shows/shows-api-slice';
-// import Navbar from './components/Navbar'
+import Navbar from './components/Navbar'
 // import Profile from './features/profiles/Profile'
 // import NewProfileForm from './features/profiles/NewProfileForm'
 // import EditProfileForm from './features/profiles/EditProfileForm'
@@ -16,7 +16,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>Las Vegas Guide</h1>
+      <Navbar />
+      <h1>header goes here</h1>
       <div className='shows-container'>
         {error ? (
           <>Oh no, there was an error</>
@@ -36,26 +37,8 @@ const App = () => {
             ) : null }
         
       
-        {/* <p>Number of shows fetched: {data.length}</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Name:</th>
-              <th>Event:</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.events.map((show) => (
-              <tr key={show.id}>
-                <td>{show.name}</td>
-                <td>{show.event}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
       </div>
 
-      {/* <Navbar /> */}
         {/* <NewProfileForm />
         <Profile />
         <EditProfileForm /> */}
