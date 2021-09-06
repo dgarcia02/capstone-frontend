@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../App.css';
 // import { useSelector, useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const LogInForm = () => {
+
+    // Toggle Error Messages
+    const [toggleError, setToggleError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+
+    // Toggle States
+    const [toggleUserSignUp, setToggleUserSignUp] = useState(true)
+    const []
 
     return (
         <div id="form-container">
@@ -24,7 +32,7 @@ const LogInForm = () => {
                 </Button>
                 <br/>
                 <br/>
-                <p>Need an account?</p>
+                <p onClick={}>Need an account?</p>
             </Form>
         </div>
     )

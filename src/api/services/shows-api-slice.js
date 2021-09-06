@@ -9,7 +9,7 @@ const userInput = 'shinlim'
 // RTK Query
 export const showsApiSlice = createApi({
     reducerPath: 'showApi',
-    // how were going to fetch our data
+    // how we're going to fetch our data
         // base url is the root url
     baseQuery: fetchBaseQuery({ 
         baseUrl: 'https://app.ticketmaster.com/discovery/v2/', 
