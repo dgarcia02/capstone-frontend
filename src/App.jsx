@@ -1,12 +1,14 @@
 import React from 'react'
-import './App.css'
 
 // Components
 import { useFetchShowsQuery } from './api/shows/shows-api-slice';
 import Navbar from './components/Navbar'
+import Header from './components/Header'
 // import Profile from './features/profiles/Profile'
 // import NewProfileForm from './features/profiles/NewProfileForm'
 // import EditProfileForm from './features/profiles/EditProfileForm'
+import Button from 'react-bootstrap/Button';
+import './App.css'
 
 
 
@@ -17,7 +19,8 @@ const App = () => {
   return (
     <div className="container">
       <Navbar />
-      <h1>header goes here</h1>
+      <Header />
+      <Button variant='primary' type='submit'>test</Button>
       <div className='shows-container'>
         {error ? (
           <>Oh no, there was an error</>
@@ -42,10 +45,8 @@ const App = () => {
         {/* <NewProfileForm />
         <Profile />
         <EditProfileForm /> */}
-        {/* <div className='headerContainer'>
-                <img src="https://i.imgur.com/6LtVTDQ.jpg"/>
-        </div> */}
-        {/* <button onClick={}></button> */}
+       
+        
     </div>
   )
 }
