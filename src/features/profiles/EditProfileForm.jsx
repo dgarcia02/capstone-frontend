@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, selectProfileById } from 'react-redux'
 import { useHistory } from './profileSlice'
 
 import { editProfile } from './profileSlice'
@@ -8,7 +8,7 @@ const EditProfileForm = ({ match }) => {
     const { postId } = match.params
 
     // this finds the profile by id to edit
-    const profile = useSelector(state => state.profile.find(profile => profile.id === profile.Id)
+    const profile = useSelector(state => selectProfileById(profile => profile.id === profile.Id)
     )
 
     // setting the use state as profile.'#' to call the current state

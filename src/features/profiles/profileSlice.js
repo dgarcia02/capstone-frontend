@@ -1,9 +1,21 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit'
+// nanoid gives a random generated id 
+import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit'
+// check this to make sure it's from the client
+// import { client } from '../../api/client'
 
-let initialState = [
-    { first_name: 'dulce', last_name: 'garcia', email: 'dulcegarcia05.21@gmail.com', image: '.jpeg', gender: 'female', dob: '05/21/1997', phone: '9567407419', city: 'Laredo', state: 'TX' },
-    { first_name: 'giovanni', last_name: 'garcia', email: 'example@gmail.com', image: '.jpeg', gender: 'male', dob: '05/20/2002', phone: '9567751085', city: 'Laredo', state: 'TX' }
- ]
+const initialState = {
+    posts: {},
+    status: 'idle',
+    error: null
+}
+
+// createAsyncThunk takes 2 arguments
+    // a string that will be used as the prefix for generated action types
+    // a "payload creator" that returns a Promise or rejected Promise with error
+export const fetchProfile = createAsyncThunk('profile/fetchProfile', async() => {
+    const response = await client.get('/')
+    return response.profile
+})
 
 export const profileSlice = createSlice({
     name: 'profile', 
@@ -29,6 +41,20 @@ export const profileSlice = createSlice({
                 }
             }
         }
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchProfile.pending, (state, action) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchProfile.fulfilled, (state, action) => {
+                const newEntities = {}
+                action.payload.forEach(profile => {
+                    newEntities[profile.id] = profile
+                })
+                state.entities = newEntities
+                state.status = 'idle'
+            })
     }
 })
 
@@ -36,6 +62,7 @@ export const { newProfile, editProfile } = profileSlice.actions
 
 export default profileSlice.reducer;
 
+export const selectProfileById = (state, profileId) => state.profiles.find(profile => profile.id === profile.Id)
 
 // editProfile(state, action) {
 //     const { id, first_name, last_name, email, image, gender, dob, phone, city, states } = action.payload
