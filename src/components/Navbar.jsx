@@ -26,12 +26,11 @@ const Navbar = () => {
         <div className="nav-container">
             <nav className="navbar">
                 <img src="https://i.imgur.com/1A8O0YU.png" alt="" width={80}/>
-                <h2 id="nav-logo">Las Vegas Guide</h2>
-                <div className="menu-toggle" id="mobile-menu">
+                {/* <div className="menu-toggle" id="mobile-menu">
                     <span className="bar"></span>
                     <span className="bar"></span>
                     <span className="bar"></span>
-                </div>
+                </div> */}
                 <ul className="nav-menu">
                     <li>
                         <a href="#home" className="nav-links">Home</a>

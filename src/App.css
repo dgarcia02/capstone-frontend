@@ -48,3 +48,18 @@ button {
 .headerImg {
   width: 100%;
 }
+
+.navbar {
+  background-color: #282c34;
+}
+
+.nav-menu {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;  
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+}
