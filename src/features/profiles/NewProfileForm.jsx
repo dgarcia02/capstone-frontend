@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 // gives the item a generated id
 import { nanoid } from '@reduxjs/toolkit'
 
@@ -15,8 +15,11 @@ const NewProfileForm = () => {
     const [phone, setPhone] = useState('')
     const [city, setCity] = useState('')
     const [states, setStates] = useState('')
+    const [userId, setUserId] = useState('')
 
     const dispatch = useDispatch()
+
+    const users = useSelector(state => state.currentUser)
 
     const onFirstNameChange = e => setFirst_Name(e.target.value)
     const onLastNameChange = e => setLast_Name(e.target.value)
@@ -32,7 +35,7 @@ const NewProfileForm = () => {
         if (first_name && last_name && email && image && gender && dob && phone && city && states) {
             dispatch(
                 newProfile({
-                    id: nanoid(),
+                    // id: nanoid(),
                     first_name,
                     last_name,
                     email,
@@ -41,7 +44,8 @@ const NewProfileForm = () => {
                     dob,
                     phone,
                     city,
-                    states
+                    states,
+                    userId
                 })
             )
             setFirst_Name('')
@@ -60,6 +64,8 @@ const NewProfileForm = () => {
         <div className='newProfile-container'>
             <h3>Create new profile.</h3>
             <form>
+                <label htmlFor='userProfile'>User Profile id</label>
+                <input type="hidden" id='userProfile' value={userId} />
                 <label htmlFor="profileFirstName">First Name</label>
                 <input
                     type="text"
