@@ -6,6 +6,8 @@ import { logIn  } from '../features/currentUser/currentUserSlice'
 // CSS and Bootstrap
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl'
 
 // Components
 import currentUser from '../features/currentUser/currentUserSlice'
@@ -33,6 +35,17 @@ const Navbar = () => {
                 </div> */}
                 <ul className="nav-menu">
                     <li>
+                        <Form className="d-flex">
+                            <FormControl
+                                type="search"
+                                placeholder="Search"
+                                className="mr-2"
+                                aria-label="Search"
+                            />
+                            <Button variant="outline-secondary">Search</Button>
+                        </Form>
+                    </li>
+                    <li>
                         <a href="#home" className="nav-links">Home</a>
                     </li>
                     {
@@ -49,10 +62,9 @@ const Navbar = () => {
                         :
                         <li>
                             {/* this is the button that opens the modal */}
-                            <Button variant='warning' onClick={handleShow}>
+                            <Button variant='outline-warning' onClick={handleShow}>
                                 Log In
                             </Button>
-
                             <Modal show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Log In</Modal.Title>
@@ -66,17 +78,6 @@ const Navbar = () => {
 
                             {/* dont forget to add the logIn dispatch to show current use logged in */}
                             {/* <button onClick={()=> dispatch(logIn())}>Log In</button> */}
-                            {/* <button onClick={()=> dispatch(open_close())}>Log In</button> */}
-                            {/* <modal
-                                open={ loginOpen }
-                                onClose={ ()=>dispatch(open_close()) }
-                                center
-                                classNames={{
-                                    overlay: 'customOverlay',
-                                    modal: 'customModal',
-                                }} >
-                                <LoginForm /> 
-                            </modal> */}
                         </li>
                     } 
                    

@@ -10,7 +10,6 @@ import Header from './components/Header'
 
 
 // CSS and Bootstrap
-import Button from 'react-bootstrap/Button';
 import './App.css'
 
 
@@ -23,7 +22,6 @@ const App = () => {
     <div className="container">
       <Nav />
       <Header />
-      <Button variant='primary' type='submit'>test</Button>
       <div className='shows-container'>
         {error ? (
           <>Oh no, there was an error</>
