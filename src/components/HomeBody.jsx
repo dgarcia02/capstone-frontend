@@ -26,9 +26,14 @@ const HomeBody = () => {
                             <div className='allShows'>
                                 {data._embedded.events.map((event) => (
                                     <div className='individualShow'>
-                                        <h3>{event.name}</h3>
-                                        <h5>{event.locale}</h5>
                                         <img src={event.images[0].url} alt={event.name} height={250} />
+                                        <h3>{event.name}</h3>
+                                        <h6>{event.classifications[0].genre.name}</h6>
+                                        <h6>{event._embedded.venues[0].name}</h6>
+                                        <h6>{event.dates.start.localDate}</h6>
+                                        <h6>{event.dates.start.localTime}</h6>
+                                        <h6>${event.priceRanges[0].min}</h6>
+                                        <p>Please Note: {event.info}</p>
                                         <Button variant="outline-secondary" type="submit">
                                             <i class="fas fa-heart"></i>
                                         </Button>

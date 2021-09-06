@@ -60,10 +60,14 @@ ul {
 .individualShow {
   width: 32%;
   /* background-color: whitesmoke; */
-  margin-bottom: 1.2em;
+  margin: 1em 0 1em 0;
 }
 
 .individualShow > img {
   width: 100%;
   height: auto;
+}
+
+.individualShow > p {
+  font-size: 0.6rem;
 }
