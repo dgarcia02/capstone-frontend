@@ -2,11 +2,14 @@ import React from 'react'
 
 // Components
 import { useFetchShowsQuery } from './api/shows/shows-api-slice';
-import Navbar from './components/Navbar'
+import Nav from './components/Navbar'
 import Header from './components/Header'
 // import Profile from './features/profiles/Profile'
 // import NewProfileForm from './features/profiles/NewProfileForm'
 // import EditProfileForm from './features/profiles/EditProfileForm'
+
+
+// CSS and Bootstrap
 import Button from 'react-bootstrap/Button';
 import './App.css'
 
@@ -18,7 +21,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <Navbar />
+      <Nav />
       <Header />
       <Button variant='primary' type='submit'>test</Button>
       <div className='shows-container'>
