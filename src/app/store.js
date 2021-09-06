@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
-import isLoggedReducer from '../features/isLogged/isLoggedSlice';
+import currentUserSlice from '../features/currentUser/currentUserSlice';
 import profileReducer from '../features/profiles/profileSlice';
 import newUserReducer from '../features/userAuth/newUserSlice';
 import { showsApiSlice } from '../api/shows/shows-api-slice';
@@ -10,7 +10,7 @@ export const store = configureStore({
     // key names will define the state
     reducer: {
         counter: counterReducer,
-        isLogged: isLoggedReducer,
+        currentUser: currentUserSlice,
         profile: profileReducer,
         newUser: newUserReducer,
         [showsApiSlice.reducerPath]: showsApiSlice.reducer,
