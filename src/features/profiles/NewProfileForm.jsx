@@ -141,7 +141,7 @@ const NewProfileForm = () => {
                     onChange={onStateChange}
                 />
                 <br/>
-                <button type='submit' onClick={onSaveProfile}>Save Profile</button>
+                <button type='button' onClick={onSaveProfile}>Save Profile</button>
             </form>
         </div>
     )
