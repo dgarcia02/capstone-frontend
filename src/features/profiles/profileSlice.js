@@ -8,7 +8,13 @@ let initialState = [
 export const profileSlice = createSlice({
     name: 'profile', 
     initialState,
-    reducers: {}
+    reducers: {
+        newProfile(state, action) {
+            state.push(action.payload)
+        }
+    }
 })
+
+export const { newProfile } = profileSlice.actions
 
 export default profileSlice.reducer;
