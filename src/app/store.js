@@ -1,9 +1,13 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query'
 import currentUserSlice from '../features/currentUser/currentUserSlice';
+import authSlice from '../features/userAuth/authSlice'
+
+// API's
 import { showsApiSlice } from '../api/services/shows-api-slice';
 import { userAPISlice } from '../features/userAuth/userSlice';
 import { profileApiSlice } from '../features/profiles/profileSlice';
-import { setupListeners } from '@reduxjs/toolkit/query'
+
 
 // can pass in all reducers in this object
 export const store = configureStore({
@@ -13,6 +17,7 @@ export const store = configureStore({
         [showsApiSlice.reducerPath]: showsApiSlice.reducer,
         [userAPISlice.reducerPath]: userAPISlice.reducer,
         [profileApiSlice.reducerPath]: profileApiSlice.reducer,
+        authSlice,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware().concat(showsApiSlice.middleware, userAPISlice.middleware, profileApiSlice.middleware);

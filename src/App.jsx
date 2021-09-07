@@ -7,11 +7,10 @@ import HomeBody from './components/HomeBody'
 // import Profile from './features/profiles/Profile'
 import NewProfileForm from './features/profiles/NewProfileForm'
 // import EditProfileForm from './features/profiles/EditProfileForm'
-
+import currentUser from './features/currentUser/currentUserSlice'
 
 // CSS and Bootstrap
 import './App.css'
-
 
 
 const App = () => {

@@ -6,6 +6,13 @@ export const userAPISlice = createApi({
         baseUrl: "https://intense-mountain-41648.herokuapp.com/api",
     }),
     endpoints: (build) => ({
+        login: build.mutation({
+            query: () => ({
+                url: '/users/login',
+                method: 'PUT',
+                body,
+            })
+        }),
         fetchUsers: build.query({
             query: () => ({ url:'/users' }),
         }),
@@ -20,6 +27,8 @@ export const userAPISlice = createApi({
 })
 
 export const { useFetchUsersQuery, useAddUserMutation } = userAPISlice;
+
+export const { endpoints: { login }, } = userAPISlice;
 
 export default userAPISlice;
 

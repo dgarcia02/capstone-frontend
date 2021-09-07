@@ -8,20 +8,39 @@ import Modal from 'react-bootstrap/Modal';
 import Spinner from 'react-bootstrap/Spinner';
 
 // API
-import { useFetchShowsQuery } from '../api/services/shows-api-slice';
+import showsApiSlice, { useFetchShowsQuery, useGetShowsByNameQuery } from '../api/services/shows-api-slice';
 
 
 const HomeBody = () => {
     const { data, error, isLoading } = useFetchShowsQuery();
+    // const { data, refetch, isFetching } = showsApiSlice.useGetShowsByNameQuery(userInput)
 
     const [show, setShow] = useState(false)
+    // const [userInput, setUserInput] = useState('')
 
     // this opens and closes the modal
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true) 
 
+    // const handleChange = (event) => {
+    //     setUserInput({ ...userInput, [event.target.name]: event.target.value })
+    // }
+
+    // const searchEvent = (event) => {
+    //     setUserInput(event.target.value)
+    //     // event.preventDefault()
+    //     // const userInput = event.target.value
+    // }
+
+    // const { data, refetch, isFetching } = showsApiSlice.useGetShowsByNameQuery(userInput)
+
     return (
         <>
+            {/* <form onSubmit={searchEvent}>
+                <input type="text" place='search' onChange={handleChange}/> 
+                <button type='submit'>Click</button>
+                {console.log(userInput)}
+            </form> */}
             <Container className='homeBody-container'>
                 <Row>
                     <Col sm={2}>This is the side panel</Col>

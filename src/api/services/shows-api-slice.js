@@ -22,13 +22,17 @@ export const showsApiSlice = createApi({
 }),
     endpoints: (builder) => ({
         fetchShows: builder.query({
-            query(limit = 10) {
-                return `events.json?dmaId=319&keyword=${userInput}&apikey=${VEGAS_API_KEY}&size=12`;
+            query() {
+                // this randomly returns events with magic
+                return `events.json?classificationName=magic&dmaId=319&sort=random&apikey=${VEGAS_API_KEY}&size=15`;
             }
+        }),
+        getShowsByName: builder.query({
+            query: (keyword) => `events.json?dmaId=319&keyword=${keyword}&apikey=${VEGAS_API_KEY}&size=12`
         })
     })
 })
 
-export const { useFetchShowsQuery } = showsApiSlice;
+export const { useFetchShowsQuery, useGetShowsByNameQuery } = showsApiSlice;
 
 export default showsApiSlice;

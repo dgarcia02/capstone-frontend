@@ -6,8 +6,8 @@ export const currentUserSlice = createSlice({
     name: 'currentUser',
     initialState,
     reducers: {
-        logIn: (state, action) => {
-            !state
+        logIn: (state) => {
+            state.value = !value
         }
     }
 })

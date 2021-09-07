@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import '../App.css';
+import '../../App.css';
 // import { useSelector, useDispatch } from 'react-redux';
-import NewUserForm from '../features/userAuth/NewUserForm'
+import NewUserForm from './NewUserForm'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 

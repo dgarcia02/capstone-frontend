@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import * as React from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+// API
 import { useFetchProfilesQuery, useAddProfileMutation } from './profileSlice';
 
 const NewProfileForm = () => {
+    const dispatch = useDispatch()
+
     const emptyProfile = {
         first_name: '',
         last_name: '',
@@ -21,7 +25,6 @@ const NewProfileForm = () => {
     const [profile, setProfile] = useState(emptyProfile)
     const [addProfile, { isLoading }] = useAddProfileMutation()
 
-    // const dispatch = useDispatch()
 
     // const users = useSelector(state => state.currentUser)
 
@@ -40,83 +43,47 @@ const NewProfileForm = () => {
             >
                 <Form.Group className='mb-3'>
                     <Form.Label>First Name</Form.Label>    
-                    <Form.Control
-                        type="text"
-                        name='first_name'                  
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='first_name' type="text" onChange={handleChange}/>
                 </Form.Group>
                 
                 <Form.Group className='mb-3'>
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control 
-                        type='text'
-                        name='last_name'
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='last_name' type='text' onChange={handleChange}/>
                 </Form.Group>
                 
                 <Form.Group className='mb-3' >
                     <Form.Label>Email</Form.Label>
-                    <Form.Control 
-                        type='text'
-                        name='email'
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='email' type='email' onChange={handleChange}/>
                 </Form.Group>
                 <br/>
                 <Form.Group className='mb-3' >
                     <Form.Label>Image</Form.Label>
-                    <Form.Control 
-                        type='text'
-                        name='image'
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='image' type='text' onChange={handleChange}/>
                 </Form.Group>
                 <br/>
                 <Form.Group className='mb-3' >
                     <Form.Label>Gender</Form.Label>
-                    <Form.Control 
-                        type='text'
-                        name='gender'
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='gender' type='text' onChange={handleChange}/>
                 </Form.Group>
                 <br/>
                 <Form.Group className='mb-3' >
                     <Form.Label>Date of Birth</Form.Label>
-                    <Form.Control 
-                        type='text'
-                        name='dob'
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='dob' type='date' onChange={handleChange}/>
                 </Form.Group>
                 <br/>
                 <Form.Group className='mb-3' >
                     <Form.Label>Phone</Form.Label>
-                    <Form.Control 
-                        type='text'
-                        name='phone'     
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='phone' type='text' onChange={handleChange}/>
                 </Form.Group>
                 <br/>
                 <Form.Group className='mb-3' >
                     <Form.Label>City</Form.Label>
-                    <Form.Control 
-                        type='text'
-                        name='city'
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='city' type='text' onChange={handleChange}/>
                 </Form.Group>
                 <br/>
                 <Form.Group className='mb-3' >
                     <Form.Label>State</Form.Label>
-                    <Form.Control 
-                        type='text'
-                        name='state'
-                        onChange={handleChange}
-                    />
+                    <Form.Control name='state' type='text' onChange={handleChange}/>
                 </Form.Group>
                 <br/>
                 <Button variant="primary" type="submit">

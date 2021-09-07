@@ -11,7 +11,7 @@ import FormControl from 'react-bootstrap/FormControl'
 
 // Components
 import currentUser from '../features/currentUser/currentUserSlice'
-import LogIn from './LogIn'
+import LogIn from '../features/userAuth/LogIn'
 import NewUserForm from '../features/userAuth/NewUserForm';
 
 const Navbar = () => {
