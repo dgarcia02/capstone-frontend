@@ -5,15 +5,14 @@ import { useSelector, useDispatch } from 'react-redux'
 // CSS and Bootstrap
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl'
 
 // Global States
-import { logIn  } from '../features/currentUser/currentUserSlice'
+import { logIn  } from '../features/currentUser/currentUserSlice';
 
 // Components
-import LogIn from '../features/userAuth/LogIn'
+import LogIn from '../features/userAuth/LogIn';
 import NewUserForm from '../features/userAuth/NewUserForm';
+import Profile from '../features/profiles/Profile';
 
 const Navbar = () => {
     const dispatch = useDispatch()
@@ -33,16 +32,19 @@ const Navbar = () => {
     return (
         <div className="nav-container">
             <nav className="navbar">
-                <img src="https://i.imgur.com/1A8O0YU.png" alt="" width={80}/>
+                <img src="https://i.imgur.com/bbKC6AC.png" alt="" width={75}/>
                 <ul className="nav-menu">
                     <li>
-                        <a href="#home" className="nav-links">
-                            <i class="fas fa-home"></i> 
-                        </a>
+                        <p className='navIcons'>Home</p>
+                        {/* <i class="fas fa-home navIcons"></i>  */}
                     </li>
-                    {/* if user is logged in they can see their profile */}
+                    {/* if user is logged in they can see their profile:
+                        - a full screen modal will open displaying the user profile */}
                     { currentUser &&
-                        <li><a href="#" className="nav-links"><i class="fas fa-user"></i></a></li>
+                        <li>
+                            <p className="navIcons">Profile</p>
+                            {/* <i class="fas fa-user navIcons"></i> */}
+                        </li>
                     }
 
                     { currentUser ?

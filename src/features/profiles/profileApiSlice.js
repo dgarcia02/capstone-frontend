@@ -7,7 +7,10 @@ export const profileApiSlice = createApi({
     }),
     endpoints: (build) => ({
         fetchProfiles: build.query({
-            query: () => ({ url:'/profiles' }),
+            query() {
+                return '/profiles'
+            }
+            // query: () => ({ url:'/profiles' }),
         }),
         addProfile: build.mutation({
             query: (body) => ({

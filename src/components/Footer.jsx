@@ -14,7 +14,7 @@ const Footer = () => {
                             <h6>Contact</h6>
                         </Col>
                         <Col sm={5}>
-                            <img src="https://i.imgur.com/1A8O0YU.png" alt="Logo" width={100}/>
+                            <img src="https://i.imgur.com/bbKC6AC.png" alt="Logo" width={100}/>
                             <br />
                             <a href="https://github.com/dgarcia02" target='_blank'><i class="fab fa-github"></i></a>
                             <a href="https://www.linkedin.com/in/dulcegarcia2/" target='_blank'><i class="fab fa-linkedin"></i></a>

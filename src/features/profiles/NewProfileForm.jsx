@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 // API
-import { useFetchProfilesQuery, useAddProfileMutation } from './profileSlice';
+import { useFetchProfilesQuery, useAddProfileMutation } from './profileApiSlice';
 
 const NewProfileForm = () => {
     const dispatch = useDispatch()

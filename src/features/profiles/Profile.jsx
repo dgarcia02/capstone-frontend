@@ -1,10 +1,15 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-const ProfileList = () => {
-    const profiles = useSelector(state => state.profile)
+// API
+import profileApiSlice, { useFetchProfilesQuery } from './profileApiSlice'
 
-    const renderedProfiles = profiles.map(profile => (
+const Profile = () => {
+    const dispatch = useDispatch()
+    // this gets access to the profiles state
+    const profilesApi = useSelector(state => state.profile)
+
+    const renderedProfiles = profilesApi.map((profile) => (
         <div className='profiles' key={profile.id}>
             <h3>Name: {profile.first_name} {profile.last_name}</h3>
             <h4>Email: {profile.email}</h4>
@@ -25,4 +30,4 @@ const ProfileList = () => {
     )
 }
 
-export default ProfileList;
+export default Profile;

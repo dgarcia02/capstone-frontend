@@ -39,10 +39,14 @@ root {
 }
 
 .nav-menu {
-  width: 25%;
+  width: 35%;
   display: flex;
   justify-content: space-around;  
-  align-items: center;
+  /* align-items: center; */
+}
+
+.navbar > img {
+  margin: 0 0 1em 1.6em;
 }
 
 .switchAccount {
@@ -92,4 +96,19 @@ footer{
   background-color: #070707;
   color: whitesmoke;
   margin-top: 2em;
+}
+
+.navIcons {
+  color: #CCCCCC;
+  font-size: 1.2em;
+  transition: color 0.3s ease-out;
+  cursor: pointer;
+}
+
+.navIcons:hover {
+  color: #9601FF;
+  -webkit-transition: color 0.3s ease-in;
+  -moz-transition: color 0.3s ease-in;
+  -o-transition: color 0.3s ease-in;
+  transition: color 0.3s ease-in;
 }
