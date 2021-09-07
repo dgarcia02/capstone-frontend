@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+
 export const userAPISlice = createApi({
     reducerPath: 'usersAPI',
     baseQuery: fetchBaseQuery({
@@ -7,13 +8,11 @@ export const userAPISlice = createApi({
     }),
     endpoints: (build) => ({
         fetchUsers: build.query({
-            query: () => {
-                return `/users`
-            }
+            query: () => ({ url:'/users' }),
         }),
         addUser: build.mutation({
             query: (body) => ({
-                url: `/users`,
+                url: '/users',
                 method: 'POST',
                 body,
             }),

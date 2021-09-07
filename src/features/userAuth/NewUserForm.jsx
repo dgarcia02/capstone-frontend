@@ -23,26 +23,6 @@ const NewUserForm = () => {
         dispatch(signUpUser(data))
     }
 
-    // this is dispatching the action to the global state
-    // dispatch(signUpUser(data))
-
-    // useEffect(() => {
-    //    return () => {
-    //        dispatch(clearState())
-    //    }
-    // }, [])
-
-    // useEffect(() => {
-    //     if (isSuccess) {
-    //         dispatch(clearState())
-    //         history.push('/')
-    //     }
-    //     if (isError) {
-    //         toast.error(errorMessage)
-    //         dispatch(clearState())
-    //     }
-    // }, [isSuccess, isError])
-
     const emptyUser = { username: '', password: '' }
 
     // // putting these states here because you can't directly change store state from here
@@ -54,21 +34,6 @@ const NewUserForm = () => {
     }
 
     const handleAddUser = () => addUser(user).then(() => setUser(emptyUser))
-
-    // const onSaveUser = () => {
-    //     if (username && password) {
-    //         // this is changing the user state globally
-    //         dispatch(
-    //             user({
-    //                 username,
-    //                 password
-    //             })
-    //         )
-    //         // this is to avoid overwriting the state
-    //         setUsername('')
-    //         setPassword('')
-    //     }
-    // }
 
     return (
         <div className='newUser-container'>
@@ -111,3 +76,39 @@ export default NewUserForm;
 //       // handle result here
 //     })
 // }
+
+// this is dispatching the action to the global state
+// dispatch(signUpUser(data))
+
+ // useEffect(() => {
+ //    return () => {
+//        dispatch(clearState())
+ //    }
+    // }, [])
+
+    // useEffect(() => {
+    //     if (isSuccess) {
+    //         dispatch(clearState())
+    //         history.push('/')
+    //     }
+    //     if (isError) {
+    //         toast.error(errorMessage)
+    //         dispatch(clearState())
+    //     }
+    // }, [isSuccess, isError])
+
+
+        // const onSaveUser = () => {
+    //     if (username && password) {
+    //         // this is changing the user state globally
+    //         dispatch(
+    //             user({
+    //                 username,
+    //                 password
+    //             })
+    //         )
+    //         // this is to avoid overwriting the state
+    //         setUsername('')
+    //         setPassword('')
+    //     }
+    // }
