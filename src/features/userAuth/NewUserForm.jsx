@@ -19,9 +19,9 @@ const NewUserForm = () => {
     // const { isFetching, isSuccess, isError, errorMessage  } = useSelector(useSelector)
 
     // this is grabbing the data from the form
-    const onSubmit = (data) => {
-        dispatch(signUpUser(data))
-    }
+    // const onSubmit = (data) => {
+    //     dispatch(signUpUser(data))
+    // }
 
     const emptyUser = { username: '', password: '' }
 
