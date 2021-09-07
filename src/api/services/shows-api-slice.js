@@ -24,7 +24,7 @@ export const showsApiSlice = createApi({
         fetchShows: builder.query({
             query() {
                 // this randomly returns events with magic
-                return `events.json?classificationName=magic&dmaId=319&sort=random&apikey=${VEGAS_API_KEY}&size=15`;
+                return `events.json?classificationName=magic&dmaId=319&sort=date,asc&apikey=${VEGAS_API_KEY}&size=15`;
             }
         }),
         getShowsByName: builder.query({

@@ -55,21 +55,29 @@ const HomeBody = () => {
                         <br />
                         <h5>Categories</h5>
                         <br />
-                        <label className='switch'>
-                            <input type="checkbox" />
-                            <span className='slider round'></span>
-                         </label>
+                         <div>
+                            <input type='checkbox' id='theatre' ></input>
+                            <label htmlFor="">Arts & Theatre</label>
+                        </div>
+                         <div>
+                            <input type='checkbox' id='comedy' ></input>
+                            <label htmlFor="">Comedy</label>
+                        </div>
                         <div>
                             <input type='checkbox' id='magic' ></input>
                             <label htmlFor="">Magic</label>
                         </div>
                         <div>
-                            <input type='checkbox' id='magic' ></input>
-                            <label htmlFor="">Theatre</label>
+                            <input type='checkbox' id='miscellaneous' ></input>
+                            <label htmlFor="">Miscellaneous</label>
                         </div>
                         <div>
-                            <input type='checkbox' id='music' ></input>
-                            <label htmlFor="">Music</label>
+                            <input type='checkbox' id='musical' ></input>
+                            <label htmlFor="">Musical</label>
+                        </div>
+                        <div>
+                            <input type='checkbox' id='psychics' ></input>
+                            <label htmlFor="">Psychics / Mediums</label>
                         </div>
                     </Col>
                     <Col sm={10} className='shows-container'>
