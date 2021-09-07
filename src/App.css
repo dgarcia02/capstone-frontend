@@ -1,3 +1,11 @@
+root {
+  --primarySilver: #EDEDED;
+  --electricViolet: #9601FF;
+  --richBlack: #070707;
+  --intOrange: #F24C00;
+}
+
+
 .App {
   text-align: center;
 }
@@ -26,7 +34,7 @@
 }
 
 .navbar {
-  background-color: #282c34;
+  background-color: var(--primarySilver);
   height: 5em;
 }
 
