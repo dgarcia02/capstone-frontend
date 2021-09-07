@@ -41,6 +41,12 @@
   align-items: center;
 }
 
+.switchAccount {
+  color: cadetblue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 ul {
   list-style-type: none;
 }

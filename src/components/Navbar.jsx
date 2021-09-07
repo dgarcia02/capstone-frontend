@@ -87,7 +87,7 @@ const Navbar = () => {
                                     {/* if someone clicks on 'need an account'
                                     - open the NewUserForm
                                     - onClick={} */}
-                                    <p onClick={handleShowUserForm}>
+                                    <p onClick={handleShowUserForm} className='switchAccount'>
                                         { showNewUserForm ? 'Already have an account?' : 'Need an account?' }
                                     </p>
                                 </Modal.Footer>
