@@ -79,9 +79,6 @@ const Navbar = () => {
                                 </Modal.Header>
                                 <Modal.Body>
                                     { showNewUserForm ? <NewUserForm /> : <LogIn /> }
-                                    <Button variant="primary" type="submit">
-                                        {showNewUserForm ? 'Sign Up' : 'Log In'}
-                                    </Button>
                                 </Modal.Body>
                                 <Modal.Footer>
                                     {/* if someone clicks on 'need an account'

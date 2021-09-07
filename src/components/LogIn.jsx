@@ -20,6 +20,9 @@ const LogInForm = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Enter your password" />
                 </Form.Group>
+                <Button variant="primary" type="submit">
+                    Log In
+                </Button>
             </Form>
         </div>
     )

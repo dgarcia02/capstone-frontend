@@ -17,7 +17,7 @@ import './App.css'
 const App = () => {
 
   return (
-    <div className="container">
+    <div className="main-container">
       <Nav />
       <Header />
       <HomeBody />
