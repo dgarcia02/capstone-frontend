@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const profileApiSlice = createApi({
     reducerPath: 'profilesApi',
     baseQuery: fetchBaseQuery({
-        baseUrl:"https://intense-mountain-41648.herokuapp.com/api",
+        baseUrl:'https://intense-mountain-41648.herokuapp.com/api',
     }),
     endpoints: (build) => ({
         fetchProfiles: build.query({

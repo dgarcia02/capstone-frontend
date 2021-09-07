@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Spinner from 'react-bootstrap/Spinner';
+import Form from 'react-bootstrap/Form';
 
 // API
 import showsApiSlice, { useFetchShowsQuery, useGetShowsByNameQuery } from '../api/services/shows-api-slice';
@@ -41,14 +42,36 @@ const HomeBody = () => {
 
     return (
         <>
+            <br />
             <form onSubmit={searchEvent}>
                 <input type="text" placeholder='search' onChange={handleChange}/> 
                 <button type='submit'>Click</button>
                 {console.log(userInput)}
             </form>
-            <Container className='homeBody-container'>
+            <br />
+            <Container className='homeBody-container' fluid>
                 <Row>
-                    <Col sm={2}>This is the side panel</Col>
+                    <Col sm={2} className='sidePanel-container'>
+                        <br />
+                        <h5>Categories</h5>
+                        <br />
+                        <label className='switch'>
+                            <input type="checkbox" />
+                            <span className='slider round'></span>
+                         </label>
+                        <div>
+                            <input type='checkbox' id='magic' ></input>
+                            <label htmlFor="">Magic</label>
+                        </div>
+                        <div>
+                            <input type='checkbox' id='magic' ></input>
+                            <label htmlFor="">Theatre</label>
+                        </div>
+                        <div>
+                            <input type='checkbox' id='music' ></input>
+                            <label htmlFor="">Music</label>
+                        </div>
+                    </Col>
                     <Col sm={10} className='shows-container'>
                         {error ? (
                             <>Oh no, there was an error</>
@@ -63,49 +86,49 @@ const HomeBody = () => {
                                     return (
                                         <div className='individualShow' key={event.id} id={event.id}>
                                             {/* giving the setShowModal an event.id that way that specific event's info shows up when clicked */}
-                                        <img 
-                                            src={event.images[0].url} 
-                                            alt={event.name} 
-                                            height={250} 
-                                            onClick={(e) => setShowModal(event.id)} 
-                                            className='mainImg' 
-                                        />
-                                        <Modal show={showModal === event.id} onHide={handleClose}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>{event.name}</Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>
-                                                <img 
-                                                    src={event.images[0].url} 
-                                                    alt={event.name} 
-                                                    height={250} 
-                                                />
-                                                <h6>{event.classifications[0].genre.name}</h6>
-                                                <h6>{event._embedded.venues[0].name}</h6>
-                                                <h6>{event.dates.start.localDate}</h6>
-                                                <h6>{event.dates.start.localTime}</h6>
-                                                <h6>${event.priceRanges[0].min}</h6>
-                                                <p>Please Note: {event.info}</p>
-                                                {/* if the user is logged in, then they can add to wishlist */}
-                                                { currentUser && 
+                                            <img 
+                                                src={event.images[0].url} 
+                                                alt={event.name} 
+                                                height={250} 
+                                                onClick={(e) => setShowModal(event.id)} 
+                                                className='mainImg' 
+                                            />
+                                            <Modal show={showModal === event.id} onHide={handleClose}>
+                                                <Modal.Header closeButton>
+                                                    <Modal.Title>{event.name}</Modal.Title>
+                                                </Modal.Header>
+                                                <Modal.Body>
+                                                    <img 
+                                                        src={event.images[0].url} 
+                                                        alt={event.name} 
+                                                        height={250} 
+                                                    />
+                                                    <h6>{event.classifications[0].genre.name}</h6>
+                                                    <h6>{event._embedded.venues[0].name}</h6>
+                                                    <h6>{event.dates.start.localDate}</h6>
+                                                    <h6>{event.dates.start.localTime}</h6>
+                                                    <h6>${event.priceRanges[0].min}</h6>
+                                                    <p>Please Note: {event.info}</p>
+                                                    {/* if the user is logged in, then they can add to wishlist */}
+                                                    { currentUser && 
+                                                        <Button variant="outline-secondary" type="submit">
+                                                            <i class="fas fa-heart"></i>
+                                                        </Button>
+                                                    }  
                                                     <Button variant="outline-secondary" type="submit">
-                                                        <i class="fas fa-heart"></i>
+                                                        <a href={event.url} target='_blank'>Buy Tickets</a>
                                                     </Button>
-                                                }  
+                                                </Modal.Body>
+                                                <Modal.Footer>
+                                                </Modal.Footer>
+                                            </Modal>
+                                            <h3>{event.name}</h3>
+                                            {/* if the user is logged in, then they can add to wishlist */}
+                                            { currentUser && 
                                                 <Button variant="outline-secondary" type="submit">
-                                                    <a href={event.url} target='_blank'>Buy Tickets</a>
+                                                    <i class="fas fa-heart"></i>
                                                 </Button>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                            </Modal.Footer>
-                                        </Modal>
-                                        <h3>{event.name}</h3>
-                                        {/* if the user is logged in, then they can add to wishlist */}
-                                        { currentUser && 
-                                            <Button variant="outline-secondary" type="submit">
-                                                <i class="fas fa-heart"></i>
-                                            </Button>
-                                        }
+                                            }
                                     </div>
                                     )
                                 })}

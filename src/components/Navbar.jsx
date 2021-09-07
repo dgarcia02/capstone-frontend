@@ -20,12 +20,20 @@ const Navbar = () => {
     // this is to have access to the global state locally
     const currentUser = useSelector(state => state.currentUser)
 
+    // Local States
     const [show, setShow] = useState(false)
     const [showNewUserForm, setShowNewUserForm] = useState(false)
+    const [fullscreen, setFullscreen] = useState(true)
+    const [showProfile, setShowProfile] = useState(false)
 
-    // this opens and closes the modal
+    // Open and Close Modal
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+    const handleShowProfile = (breakpoint) => {
+        setFullscreen(breakpoint)
+        setShowProfile(true)
+    }
+
     // value=>!value will set the boolean state to the opposite 
     const handleShowUserForm = () => setShowNewUserForm(value => !value)
 
@@ -42,9 +50,26 @@ const Navbar = () => {
                         - a full screen modal will open displaying the user profile */}
                     { currentUser &&
                         <li>
-                            <p className="navIcons">Profile</p>
+                            <p className="navIcons" onClick={() => handleShowProfile()}>
+                                Profile
+                            </p>
                             {/* <i class="fas fa-user navIcons"></i> */}
+                            <Modal 
+                                show={showProfile} 
+                                fullscreen={fullscreen} 
+                                onHide={() => 
+                                setShowProfile(false)}
+                            >
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Profile</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    {/* <h5>testing the fullscreen modal</h5> */}
+                                    <Profile />
+                                </Modal.Body>
+                            </Modal>
                         </li>
+                        
                     }
 
                     { currentUser ?
