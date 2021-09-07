@@ -63,7 +63,12 @@ const NewProfileForm = () => {
                 <br/>
                 <Form.Group className='mb-3' >
                     <Form.Label>Gender</Form.Label>
-                    <Form.Control name='gender' type='text' onChange={handleChange}/>
+                    <Form.Select name='gender' onChange={handleChange}>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="non-binary">Non-Binary</option>
+                        <option value="prefer not to say">Prefer not to say</option>
+                    </Form.Select>
                 </Form.Group>
                 <br/>
                 <Form.Group className='mb-3' >

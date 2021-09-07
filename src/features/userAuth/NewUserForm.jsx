@@ -1,61 +1,69 @@
 import * as React from 'react'
 import { useState } from 'react'
-import '../../App.css'
 import { useDispatch, useSelector } from 'react-redux'
-// import { unwrapResult } from '@reduxjs/toolkit'
-// import { signUpUser } from './userSlice'
+
+// CSS and Bootstrap
+import '../../App.css'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+// Components
+import NewProfileForm from '../profiles/NewProfileForm'
+
+// Global States
+import { logIn } from '../currentUser/currentUserSlice';
+
 // API
 import { useFetchUsersQuery, useAddUserMutation } from './userSlice';
-// import { newUser } from './userSlice'
 
 const NewUserForm = () => {
     // const { data, error, isLoading } = useFetchUsersQuery(data);
-
+    // const login = useSelector(logIn)
     const dispatch = useDispatch()
-
-    // const { isFetching, isSuccess, isError, errorMessage  } = useSelector(useSelector)
-
-    // this is grabbing the data from the form
-    // const onSubmit = (data) => {
-    //     dispatch(signUpUser(data))
-    // }
 
     const emptyUser = { username: '', password: '' }
 
     // // putting these states here because you can't directly change store state from here
     const [user, setUser] = useState(emptyUser)
     const [addUser, {isLoading}] = useAddUserMutation()
+    // const [currentUser, setCurrentUser] = useState({})
 
     const handleChange = (event) => {
         setUser({ ...user, [event.target.name]: event.target.value })
     }
 
-    const handleAddUser = () => addUser(user).then(() => setUser(emptyUser))
+    const handleAddUser = () => {
+        addUser(user)
+        .then((response) => {
+            // setCurrentUser(response.data)
+            setUser(emptyUser)
+        })
+    }
 
     return (
         <div className='newUser-container'>
-            <Form 
-                className="newUserForm" 
-                onSubmit={handleAddUser}
-                // method='POST'
-            >
-                <Form.Group className="mb-3" controlId="">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control name='username' type="text" placeholder="Enter username" onChange={handleChange} />
-                </Form.Group>
+            <button onClick={() => dispatch(logIn())}>i hope this works...</button>
+           
+                <Form 
+                    className="newUserForm" 
+                    onSubmit={handleAddUser}
+                    // method='POST'
+                >
+                    <Form.Group className="mb-3" controlId="">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control name='username' type="text" placeholder="Enter username" onChange={handleChange} />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control name='password' type="password" placeholder="Enter password" onChange={handleChange} />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                   { isLoading ? 'Signing Up...' : 'Sign Up' }
-                   {/* Sign Up */}
-                </Button>
-            </Form>
+                    <Form.Group className="mb-3" controlId="">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control name='password' type="password" placeholder="Enter password" onChange={handleChange} />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                    { isLoading ? 'Signing Up...' : 'Sign Up' }
+                    {/* Sign Up */}
+                    </Button>
+                </Form>
+            
         </div>
     )
 }
@@ -64,6 +72,12 @@ export default NewUserForm;
 
 
 
+
+
+    // this is grabbing the data from the form
+    // const onSubmit = (data) => {
+    //     dispatch(signUpUser(data))
+    // }
 
 // this is the second example onSubmit
 // const onSubmit = (data) => {

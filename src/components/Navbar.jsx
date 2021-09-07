@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import '../App.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { logIn  } from '../features/currentUser/currentUserSlice'
 
 // CSS and Bootstrap
 import Button from 'react-bootstrap/Button';
@@ -9,14 +8,17 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl'
 
+// Global States
+import { logIn  } from '../features/currentUser/currentUserSlice'
+
 // Components
-import currentUser from '../features/currentUser/currentUserSlice'
 import LogIn from '../features/userAuth/LogIn'
 import NewUserForm from '../features/userAuth/NewUserForm';
 
 const Navbar = () => {
     const dispatch = useDispatch()
     // come back and check if this works correctly
+    // this is to have access to the global state locally
     const currentUser = useSelector(state => state.currentUser)
 
     const [show, setShow] = useState(false)
@@ -32,38 +34,22 @@ const Navbar = () => {
         <div className="nav-container">
             <nav className="navbar">
                 <img src="https://i.imgur.com/1A8O0YU.png" alt="" width={80}/>
-                {/* <div className="menu-toggle" id="mobile-menu">
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                </div> */}
                 <ul className="nav-menu">
-                    <li>
-                        <Form className="d-flex">
-                            <FormControl
-                                type="search"
-                                placeholder="Search"
-                                className="mr-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-secondary">Search</Button>
-                        </Form>
-                    </li>
                     <li>
                         <a href="#home" className="nav-links">
                             <i class="fas fa-home"></i> 
                         </a>
                     </li>
-                    {
-                        currentUser ?
-                        <li><a href="#" className="nav-links">Profile</a></li>
-                        : ''
+                    {/* if user is logged in they can see their profile */}
+                    { currentUser &&
+                        <li><a href="#" className="nav-links"><i class="fas fa-user"></i></a></li>
                     }
 
-                    {
-                        currentUser ?
+                    { currentUser ?
                         <li>
-                            <button onClick={()=> dispatch(logIn())}>Log Out</button>
+                            <Button variant='outline-secondary' onClick={() => dispatch(logIn())}>
+                                Log Out
+                            </Button>
                         </li>
                         :
                         <li>
