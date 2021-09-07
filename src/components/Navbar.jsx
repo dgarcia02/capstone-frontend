@@ -12,6 +12,7 @@ import FormControl from 'react-bootstrap/FormControl'
 // Components
 import currentUser from '../features/currentUser/currentUserSlice'
 import LogIn from './LogIn'
+import NewUserForm from '../features/userAuth/NewUserForm';
 
 const Navbar = () => {
     const dispatch = useDispatch()
@@ -19,10 +20,13 @@ const Navbar = () => {
     const currentUser = useSelector(state => state.currentUser)
 
     const [show, setShow] = useState(false)
+    const [showNewUserForm, setShowNewUserForm] = useState(false)
 
     // this opens and closes the modal
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+    // value=>!value will set the boolean state to the opposite 
+    const handleShowUserForm = () => setShowNewUserForm(value => !value)
 
     return (
         <div className="nav-container">
@@ -69,12 +73,23 @@ const Navbar = () => {
                             </Button>
                             <Modal show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Log In</Modal.Title>
+                                    <Modal.Title>
+                                       {showNewUserForm ? 'Sign Up' : 'Log In'}
+                                    </Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                    <LogIn />
+                                    { showNewUserForm ? <NewUserForm /> : <LogIn /> }
+                                    <Button variant="primary" type="submit">
+                                        {showNewUserForm ? 'Sign Up' : 'Log In'}
+                                    </Button>
                                 </Modal.Body>
                                 <Modal.Footer>
+                                    {/* if someone clicks on 'need an account'
+                                    - open the NewUserForm
+                                    - onClick={} */}
+                                    <p onClick={handleShowUserForm}>
+                                        { showNewUserForm ? 'Already have an account?' : 'Need an account?' }
+                                    </p>
                                 </Modal.Footer>
                             </Modal>  
 

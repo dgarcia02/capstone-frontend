@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import LogIn from '../../components/LogIn'
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 import { newUser } from './newUserSlice'
 
@@ -31,7 +33,6 @@ const NewUserForm = () => {
 
     return (
         <div className='newUser-container'>
-            <h3>Sign Up</h3>
             <Form className="newUserForm">
                 <Form.Group className="mb-3" controlId="">
                     <Form.Label>Username</Form.Label>
@@ -42,14 +43,9 @@ const NewUserForm = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Enter password" />
                 </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    Sign Up
-                </Button>
-                <br/>
-                <br/>
-                <p onClick={}>Already have an account?</p>
             </Form>
         </div>
     )
 }
+
+export default NewUserForm;
