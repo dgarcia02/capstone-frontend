@@ -85,3 +85,9 @@ ul {
 .individualShow > p {
   font-size: 0.6rem;
 }
+
+footer{
+  background-color: #070707;
+  color: whitesmoke;
+  margin-top: 2em;
+}
