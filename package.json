@@ -2,7 +2,7 @@
   "name": "capstone-frontend",
   "engines": {
     "node": "7.15.1"
-  }
+  },
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
