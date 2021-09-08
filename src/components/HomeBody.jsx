@@ -20,10 +20,11 @@ const HomeBody = () => {
     const currentUser = useSelector(state => state.currentUser)
 
     const { data, error, isLoading } = useFetchShowsQuery();
-    // const { data, refetch, isFetching } = showsApiSlice.useGetShowsByNameQuery(userInput)
+    // const { showData, refetch, isFetching } = showsApiSlice.useGetShowsByNameQuery(userInput)
 
     const [showModal, setShowModal] = useState(false)
-    const [userInput, setUserInput] = useState('')
+    // const [userInput, setUserInput] = useState('')
+    const [filter, setFilter] = useState('all')
 
     // this opens and closes the modal
     const handleClose = () => setShowModal(false)
@@ -32,29 +33,49 @@ const HomeBody = () => {
         setUserInput({ ...userInput, [event.target.name]: event.target.value })
     }
 
-    const searchEvent = (event) => {
-        setUserInput(event.target.value)
-        // event.preventDefault()
-        // const userInput = event.target.value
-    }
+    // const searchEvent = (event) => {
+    //     setUserInput(event.target.value)
+    //     // event.preventDefault()
+    //     // const userInput = event.target.value
+    // }
 
-    // const { data, refetch, isFetching } = showsApiSlice.useGetShowsByNameQuery(userInput)
+
+    const searchShow = (userInput) => {
+        // showData are the actual shows data: loop through 
+        // userInput is what the user types 
+        const { showData, refetch, isFetching } = showsApiSlice.useGetShowsByNameQuery(userInput)
+    }
 
     return (
         <>
             <br />
-            <form onSubmit={searchEvent}>
-                <input type="text" placeholder='search' onChange={handleChange}/> 
+            <br />
+            <h4 className='upcomingShows'>Upcoming Shows</h4>
+            <div>
+
+            </div>
+            {/* <form onSubmit={searchShow}>
+                <input type="text" placeholder='search' /> 
                 <button type='submit'>Click</button>
-                {console.log(userInput)}
-            </form>
+            </form> */}
             <br />
             <Container className='homeBody-container' fluid>
                 <Row>
-                    <Col sm={2} className='sidePanel-container'>
+                    {/* <Col sm={2} className='sidePanel-container'>
                         <br />
                         <h5>Categories</h5>
                         <br />
+                        <fieldset className='options'>
+                            <select onChange={(event) => {setFilter(event.target.value)}}>
+                                <option value="all">View All Shows</option>
+                                <option value="theatre">Arts & Theatre</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="magic">Magic</option>
+                                <option value="miscellaneous">Miscellaneous</option>
+                                <option value="musical">Musical</option>
+                                <option value="psychics">Psychics / Mediums</option>
+                            </select>
+                        </fieldset>
                          <div>
                             <input type='checkbox' id='theatre' ></input>
                             <label htmlFor="">Arts & Theatre</label>
@@ -79,8 +100,8 @@ const HomeBody = () => {
                             <input type='checkbox' id='psychics' ></input>
                             <label htmlFor="">Psychics / Mediums</label>
                         </div>
-                    </Col>
-                    <Col sm={10} className='shows-container'>
+                    </Col> */}
+                    <Col sm={11} className='shows-container'>
                         {error ? (
                             <>Oh no, there was an error</>
                         ) : isLoading ? (
@@ -132,11 +153,11 @@ const HomeBody = () => {
                                             </Modal>
                                             <h3>{event.name}</h3>
                                             {/* if the user is logged in, then they can add to wishlist */}
-                                            { currentUser && 
+                                            {/* { currentUser && 
                                                 <Button variant="outline-secondary" type="submit">
                                                     <i class="fas fa-heart"></i>
                                                 </Button>
-                                            }
+                                            } */}
                                     </div>
                                     )
                                 })}

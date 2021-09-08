@@ -9,15 +9,14 @@ const Footer = () => {
         <>
             <footer>
                 <Container className='footer-container'>
-                    <Row>
-                        <Col sm={5}>
-                            <h6>Contact</h6>
+                    <Row className="row-container">
+                        <Col sm={5} className='col-Container'>
                         </Col>
-                        <Col sm={5}>
+                        <Col sm={5} className='col-Container'>
                             <img src="https://i.imgur.com/bbKC6AC.png" alt="Logo" width={100}/>
                             <br />
-                            <a href="https://github.com/dgarcia02" target='_blank'><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/dulcegarcia2/" target='_blank'><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/dgarcia02" target='_blank'><i class="fab fa-github navIcons"></i></a>
+                            <a href="https://www.linkedin.com/in/dulcegarcia2/" target='_blank'><i class="fab fa-linkedin navIcons"></i></a>
                         </Col>
                     </Row>
                 </Container>

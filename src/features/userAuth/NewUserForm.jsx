@@ -42,7 +42,7 @@ const NewUserForm = () => {
 
     return (
         <div className='newUser-container'>
-            <button onClick={() => dispatch(logIn())}>i hope this works...</button>
+            {/* <button onClick={() => dispatch(logIn())}>i hope this works...</button> */}
            
                 <Form 
                     className="newUserForm" 
@@ -58,7 +58,7 @@ const NewUserForm = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control name='password' type="password" placeholder="Enter password" onChange={handleChange} />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" onClick={() => dispatch(logIn())}>
                     { isLoading ? 'Signing Up...' : 'Sign Up' }
                     {/* Sign Up */}
                     </Button>

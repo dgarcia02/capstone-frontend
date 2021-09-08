@@ -4,7 +4,13 @@ root {
   --richBlack: #070707;
   --intOrange: #F24C00;
 }
-
+* {
+  /* margin: auto; */
+  /* background-color: #EDEDED; */
+}
+.main-container {
+  background-color: #EDEDED;
+}
 
 .App {
   text-align: center;
@@ -34,7 +40,7 @@ root {
 }
 
 .navbar {
-  background-color: var(--primarySilver);
+  background-color: #EDEDED;
   height: 5em;
 }
 
@@ -73,7 +79,10 @@ ul {
 
 .mainImg {
   cursor: pointer;
+  box-shadow: 0px 16px 40px rgba(0,0,0,0.25);
+  border-radius: 30px;
 }
+
 
 .individualShow {
   width: 32%;
@@ -98,6 +107,10 @@ footer{
   margin-top: 2em;
 }
 
+.footer-container, .row-container, .col-Container {
+  background-color: #070707;
+}
+
 .navIcons {
   color: #CCCCCC;
   font-size: 1.2em;
@@ -113,6 +126,11 @@ footer{
   transition: color 0.3s ease-in;
 }
 
+.searchDiv {
+  margin: auto;
+  width: 40%;
+}
+
 .sidePanel-container {
   background-color: #292929;
   color: whitesmoke;
@@ -120,4 +138,9 @@ footer{
 
 .homeBody-container {
   width: 100%;
+  margin: auto;
+}
+
+.upcomingShows {
+  border-bottom: 1px solid lightgrey;
 }
